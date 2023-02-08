@@ -2,14 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public KeyCode jumpKey = KeyCode.Space;
-    public KeyCode leftKey = KeyCode.A;
-    public KeyCode rightKey = KeyCode.D;
-
     private Rigidbody2D rb;
-    private float runSpeed = 10.0f;
-    private float jumpSpeed = 10.0f;
-    private Vector2 direction;
+    [SerializeField] float runSpeed = 10.0f;
+    [SerializeField] float jumpSpeed = 10.0f;
 
     void Start()
     {

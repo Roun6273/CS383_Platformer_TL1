@@ -4230,9 +4230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32af6046d5d38471e8da3bb3838a122b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpKey: 32
-  leftKey: 97
-  rightKey: 100
+  runSpeed: 10
+  jumpSpeed: 13
 --- !u!61 &2068477675
 BoxCollider2D:
   m_ObjectHideFlags: 0
