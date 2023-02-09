@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     {
         AnimMovement state;
 
-        // running animation check
+        // running, idling animation check
         if (dirX > 0f) {
             state = AnimMovement.running;
             sprite.flipX = false;
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
             state = AnimMovement.idling;
         }
 
-        // jumping animation check
+        // jumping, double jumping, falling animation check
         if (rb.velocity.y > 0.1f && jumpCount == 1) {
             state = AnimMovement.jumping;
         }
@@ -71,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
         else if (rb.velocity.y < -0.1f) {
             state = AnimMovement.falling;
         }
-
 
         anim.SetInteger("state", (int)state);
     }
