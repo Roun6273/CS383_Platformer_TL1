@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private float dirX = 0.0f;
 
-    [SerializeField] float runSpeed = 10.0f;
-    [SerializeField] float jumpSpeed = 10.0f;
+    [SerializeField] private float runSpeed = 10.0f;
+    [SerializeField] private float jumpSpeed = 10.0f;
 
 
     void Start()
