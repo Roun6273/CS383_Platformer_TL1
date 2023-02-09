@@ -6,7 +6,8 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator anim;
     private float dirX = 0.0f;
-    private int jumpCount = 0;
+    private int isJumping = 0;
+    private bool isFalling = false;
 
     [SerializeField] private float runSpeed = 10.0f;
     [SerializeField] private float jumpSpeed = 10.0f;
@@ -15,9 +16,9 @@ public class PlayerMovement : MonoBehaviour
         idling,
         running,
         jumping,
-        double_jumping,
         falling,
-    }
+    } state;
+
 
     void Start()
     {
@@ -31,9 +32,9 @@ public class PlayerMovement : MonoBehaviour
         dirX = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(dirX * runSpeed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump") && jumpCount < 2) {
+        if (Input.GetButtonDown("Jump") && isJumping < 2) {
             rb.velocity = new Vector2(0, jumpSpeed);
-            jumpCount++;
+            isJumping++;
         }
         AnimUpdate();
     }
@@ -41,38 +42,21 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("collision detected");
-        jumpCount = 0;
+        isJumping = 0;
     }
 
     private void AnimUpdate()
     {
-        AnimMovement state;
-
-        // running animation check
         if (dirX > 0f) {
-            state = AnimMovement.running;
             sprite.flipX = false;
+            anim.SetBool("isRunning", true);
         }
         else if (dirX < 0f) {
-            state = AnimMovement.running;
             sprite.flipX = true;
+            anim.SetBool("isRunning", true);
         }
         else {
-            state = AnimMovement.idling;
+            anim.SetBool("isRunning", false);
         }
-
-        // jumping animation check
-        if (rb.velocity.y > 0.1f && jumpCount == 1) {
-            state = AnimMovement.jumping;
-        }
-        else if (rb.velocity.y > 0.1f && jumpCount == 2) {
-            state = AnimMovement.double_jumping;
-        }
-        else if (rb.velocity.y < -0.1f) {
-            state = AnimMovement.falling;
-        }
-
-
-        anim.SetInteger("state", (int)state);
     }
 }
