@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class EndGoal : MonoBehaviour {
+    public UnityEvent OnEndGoalReached;
+    void Awake() {
+        LevelSingleton.endGoal = this;
+        OnEndGoalReached = new UnityEvent();
+    }
     void OnTriggerEnter2D(Collider2D col) {
         if (col.name == "Player") {
             //Player won
-
-            //This function errors if there is no next level
+            OnEndGoalReached.Invoke();
+            
             try {
+                //This bit errors if there is no next level
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             catch {
