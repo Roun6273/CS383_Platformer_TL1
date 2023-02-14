@@ -32,14 +32,4 @@ public class Player : MonoBehaviour {
         Debug.Log("CJ - Player died");
         transform.position = LevelSingleton.level.playerSpawnPoint.transform.position;
     }
-    Rigidbody2D rigidbody;
-    void Start() {
-        rigidbody = GetComponent<Rigidbody2D>();
-    }
-
-    void Update() {
-        if (rigidbody.velocity.y > 20.0f) {
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, 15.0f);
-        }
-    }
 }
