@@ -48,6 +48,8 @@ public class Player : MonoBehaviour {
 
         set {
             m_score = value;
+            Debug.Log(m_score);
+            PlayerPrefs.Save();
             OnScoreChanged.Invoke();
         }
     }
@@ -59,12 +61,13 @@ public class Player : MonoBehaviour {
         OnHealthChanged.AddListener(UpdateHP);
         OnScoreChanged.AddListener(UpdateScore);
         healthBar.setMaxHealth(m_health);
-        scoreText.text = "Score: " + Score.ToString();
+        scoreText.text = "Score: " + Score;//PlayerPrefs.GetInt("Score").ToString();
     }
     public void UpdateHP(){
         healthBar.UpdateHealth(Health);
     }
     public void UpdateScore(){
+        //PlayerPrefs.SetInt("Score", Score);
         scoreText.text = "Score: " + Score.ToString();
 
     }
