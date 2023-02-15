@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class Player : MonoBehaviour {
     //Events we emit
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour {
 
     private int m_health = 3;
     private int m_score = 0;
+    public TextMeshProUGUI scoreText;
     public int Health {
         get {
             return m_health;
@@ -55,10 +57,15 @@ public class Player : MonoBehaviour {
         OnHealthChanged = new UnityEvent();
         OnScoreChanged = new UnityEvent();
         OnHealthChanged.AddListener(UpdateHP);
+        OnScoreChanged.AddListener(UpdateScore);
         healthBar.setMaxHealth(m_health);
+        scoreText.text = "Score: " + Score.ToString();
     }
     public void UpdateHP(){
-
         healthBar.UpdateHealth(Health);
+    }
+    public void UpdateScore(){
+        scoreText.text = "Score: " + Score.ToString();
+
     }
 }
