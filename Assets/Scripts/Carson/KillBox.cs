@@ -7,7 +7,8 @@ public class KillBox : MonoBehaviour {
         if (col.name == "Player") {
             Debug.Log("Got the player");
             Player player = col.gameObject.GetComponent<Player>();
-            player.Health = 0;
+            player.Health = player.Health - 1;
         }
     }
+    
 }

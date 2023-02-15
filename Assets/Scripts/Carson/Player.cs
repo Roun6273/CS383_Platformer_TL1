@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     //Events we emit
     public UnityEvent OnHealthChanged;
     public UnityEvent OnScoreChanged;
-
+    public HealthBar healthBar;
     //Respawn the player
     public void Respawn() {
         transform.position = LevelSingleton.level.playerSpawnPoint.transform.position;
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour {
         Respawn();
     }
 
-    private int m_health = 100;
+    private int m_health = 3;
     private int m_score = 0;
     public int Health {
         get {
@@ -27,10 +27,14 @@ public class Player : MonoBehaviour {
 
         set {
             m_health = value;
+            Debug.Log("In set");
+            Debug.Log(m_health);
             OnHealthChanged.Invoke();
-            if (m_health <= 0) {
+            /*if (m_health <= 0) {
                 OnDeath();
             }
+            */
+            Respawn();
         }
     }
 
@@ -49,5 +53,9 @@ public class Player : MonoBehaviour {
         LevelSingleton.player = this;
         OnHealthChanged = new UnityEvent();
         OnScoreChanged = new UnityEvent();
+        healthBar.setMaxHealth(m_health);
+    }
+    public void UpdateHP(){
+        healthBar.UpdateHealth(Health);
     }
 }

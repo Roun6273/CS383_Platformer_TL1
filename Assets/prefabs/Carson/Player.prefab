@@ -196,6 +196,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9c32cec5447ee4482087807c06476d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnScoreChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7814048644629036451
 GameObject:
   m_ObjectHideFlags: 0
