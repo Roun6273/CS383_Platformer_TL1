@@ -27,8 +27,8 @@ public class Player : MonoBehaviour {
 
         set {
             m_health = value;
-            Debug.Log("In set");
-            Debug.Log(m_health);
+            //Debug.Log("In set");
+            //Debug.Log(m_health);
             OnHealthChanged.Invoke();
             /*if (m_health <= 0) {
                 OnDeath();
@@ -56,6 +56,7 @@ public class Player : MonoBehaviour {
         healthBar.setMaxHealth(m_health);
     }
     public void UpdateHP(){
+
         healthBar.UpdateHealth(Health);
     }
 }
