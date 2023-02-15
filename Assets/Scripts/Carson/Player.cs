@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     //Events we emit
@@ -16,7 +17,8 @@ public class Player : MonoBehaviour {
 
     private void OnDeath() {
         //Feel free to comment out this line if you need to
-        Respawn();
+        //Respawn();
+        SceneManager.LoadScene(4);
     }
 
     private int m_health = 3;
@@ -33,10 +35,9 @@ public class Player : MonoBehaviour {
             //Debug.Log("In set");
             //Debug.Log(m_health);
             OnHealthChanged.Invoke();
-            /*if (m_health <= 0) {
+            if (m_health <= 0) {
                 OnDeath();
             }
-            */
             Respawn();
         }
     }
