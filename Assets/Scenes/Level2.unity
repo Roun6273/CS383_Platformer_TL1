@@ -12446,7 +12446,6 @@ MonoBehaviour:
   healthBar: {fileID: 325131071}
   player: {fileID: 721136680}
   scoreText: {fileID: 342527891}
-  UICanvas: {fileID: 1478466372}
 --- !u!114 &1478466374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144900,7 +144899,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
