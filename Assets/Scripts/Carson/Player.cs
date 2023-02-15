@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 
         set {
             m_health = value;
+            //Debugging checks
             //Debug.Log("In set");
             //Debug.Log(m_health);
             OnHealthChanged.Invoke();
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour {
         LevelSingleton.player = this;
         OnHealthChanged = new UnityEvent();
         OnScoreChanged = new UnityEvent();
+        OnHealthChanged.AddListener(UpdateHP);
         healthBar.setMaxHealth(m_health);
     }
     public void UpdateHP(){
