@@ -19,6 +19,6 @@ public class KillBox : MonoBehaviour {
             Debug.Log("The audio source is null!");
             _audioSource = gameObject.AddComponent<AudioSource>();
         }
-        DontDestroyOnLoad(_audioSource);
+        //DontDestroyOnLoad(_audioSource);
     }
 }
