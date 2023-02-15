@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     public HealthBar healthBar;
     public Player player;
     [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private GameObject UICanvas;
+    //[SerializeField] private GameObject UICanvas;
     void Awake()
     {
         healthBar.setMaxHealth(player.Health);
