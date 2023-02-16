@@ -10,16 +10,11 @@ using UnityEngine.SceneManagement;
 
 public class PausedMenu : MonoBehaviour
 {
-
+    //paused menu object
     public GameObject PauseMenu;
     //pauses all running scripts during pause
     public static bool isPaused;
-    // Start is called before the first frame update
-    void Start()
-    {
-        PauseMenu.SetActive(false);
-    }
-
+  
     // Update is called once per frame
     void Update()
     {
@@ -38,6 +33,7 @@ public class PausedMenu : MonoBehaviour
         PauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        Debug.Log("Game Paused!");
     }
 
     //Resume Function
@@ -45,16 +41,19 @@ public class PausedMenu : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        Debug.Log("Game Resumed!");
     }
     
     //Main Menu Function
     public void ToMainMenu(){
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        Debug.Log("Main Menu!");
     }
 
     //Quit Application Function
     public void QuitGame(){
         Application.Quit();
+        Debug.Log("Game Quit!");
     }
 }
