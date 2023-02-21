@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class GameOverScript : MonoBehaviour
 {
   public void LoadMainMenu(){
-    SceneManager.LoadScene(0);
+    SceneManager.LoadScene("MainMenu");
+    Debug.Log("pressed");
   }
-  
+
   public void LoadFirstLevel(){
-    SceneManager.LoadScene(1);
+    SceneManager.LoadScene("Game");
+    Debug.Log("pressed");
   }
 }
+
